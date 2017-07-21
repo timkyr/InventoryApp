@@ -1,0 +1,127 @@
+<resources>
+    <string name="app_name">Inventory App</string>
+
+    <!-- Title text for the empty view, which describes the empty book case [CHAR LIMIT=50] -->
+    <string name="empty_view_title_text">No books to read...</string>
+
+    <!-- Subtitle text for the empty view that prompts the user to add a book [CHAR LIMIT=50] -->
+    <string name="empty_view_subtitle_text">Get started by adding a book</string>
+
+    <!--  text for Quantity in list item [CHAR LIMIT=50] -->
+    <string name="list_item_quantity">Quantity:</string>
+
+    <!--  text for Price in list item [CHAR LIMIT=50] -->
+    <string name="list_item_price">Price:</string>
+
+    <!--  text for button in list item [CHAR LIMIT=50] -->
+    <string name="list_item_sell_button">Sell Book</string>
+
+    <!-- Label for overflow menu option that inserts fake book data into the app [CHAR LIMIT=20] -->
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+
+    <!-- Label for overflow menu option that deletes all book data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete_all_entries">Delete All Books</string>
+
+    <!-- Label for overview category of attributes in the editor [CHAR LIMIT=30] -->
+    <string name="category_overview">Overview</string>
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_book_name">Name</string>
+
+    <!-- Text hint for quantity field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_book_quantiy">Quantity</string>
+
+    <!-- Text  for adding quantity button [CHAR LIMIT=30] -->
+    <string name="add_book_quantiy">Add Quantity +</string>
+
+    <!-- Text  for adding quantity button [CHAR LIMIT=30] -->
+    <string name="reduce_book_quantiy">Reduce Quantity -</string>
+
+    <!-- Text hint for price field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_book_price">Price</string>
+
+    <!-- Units for price of the book (kilograms) [CHAR LIMIT=5] -->
+    <string name="unit_book_price">€</string>
+
+    <!-- Label for dropdown menu option if the book's supplier is Amazon [CHAR LIMIT=20] -->
+    <string name="supplier_amazon">Amazon</string>
+
+    <!-- Label for dropdown menu option if the book is eshop [CHAR LIMIT=20] -->
+    <string name="supplier_eshop">Eshop</string>
+
+    <!-- Label for dropdown menu option if the book is Plaisio [CHAR LIMIT=20] -->
+    <string name="supplier_plasio">Plaisio</string>
+
+    <!-- Label for supplier information in the editor [CHAR LIMIT=30] -->
+    <string name="category_supplier">Supplier</string>
+
+    <!-- Label for price information in the editor [CHAR LIMIT=30] -->
+    <string name="category_price">Price</string>
+
+    <!-- Label for book cover image in the editor [CHAR LIMIT=30] -->
+    <string name="category_image">Book Cover</string>
+
+    <!-- Title for the activity to add a new book [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_new_book">Add a Book</string>
+
+    <!-- Title for the activity to edit a  book [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_edit_book">Edit a Book</string>
+
+    <!-- Toast message in editor when new book has been successfully inserted [CHAR LIMIT=NONE] -->
+    <string name="editor_insert_book_successful">Book saved</string>
+
+    <!-- Toast message in editor when new book has failed to be inserted [CHAR LIMIT=NONE] -->
+    <string name="editor_insert_book_failed">Error with saving book</string>
+
+    <!-- Toast message in editor when current book was successfully updated [CHAR LIMIT=NONE] -->
+    <string name="editor_update_book_successful">Book updated</string>
+
+    <!-- Toast message in editor when current book has failed to be updated [CHAR LIMIT=NONE] -->
+    <string name="editor_update_book_failed">Error with updating book</string>
+
+    <!-- Label for editor menu option to save book and leave editor [CHAR LIMIT=20] -->
+    <string name="action_save">Save</string>
+
+    <!-- Label for editor overflow menu option that deletes the current book [CHAR LIMIT=20] -->
+    <string name="action_delete">Delete</string>
+
+    <!-- Dialog message when user is leaving editor but hasn't saved changes [CHAR LIMIT=NONE] -->
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+
+    <!-- Dialog button text for the option to discard a user's changes [CHAR LIMIT=20] -->
+    <string name="discard">Discard</string>
+
+    <!-- Dialog button text for the option to keep editing the current book [CHAR LIMIT=20] -->
+    <string name="keep_editing">Keep Editing</string>
+
+    <!-- Dialog message to ask the user to confirm deleting the current book [CHAR LIMIT=NONE] -->
+    <string name="delete_dialog_msg">Delete this book?</string>
+
+    <!-- Dialog button text for the option to confirm deleting the current book [CHAR LIMIT=20] -->
+    <string name="delete">Delete</string>
+
+    <!-- Dialog button text for the option to cancel deletion of the current book [CHAR LIMIT=20] -->
+    <string name="cancel">Cancel</string>
+
+    <!-- Toast message in editor when current book was successfully deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_book_successful">Book deleted</string>
+
+    <!-- Dialog message to promt the user to fill all the empty fields to add a book [CHAR LIMIT=NONE] -->
+    <string name="fill_fields_msg">Please fill all the empty fields to add a book</string>
+
+    <!-- Toast message in editor when current book has failed to be deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_book_failed">Error with deleting book</string>
+
+    <!-- Toast message in editor when quantity cannot be negative [CHAR LIMIT=NONE] -->
+    <string name="quantity_reduce_failed">Error reducing quantity. Book quantity cannot be negative</string>
+
+    <string name="device_image_permission">You do not have permission to access the device photos.</string>
+
+    <string name="button_take_photo">Take Photo</string>
+
+    <string name="button_select_photo">Select Photo</string>
+
+    <string name="button_order_product">Order Book</string>
+
+
+</resources>
