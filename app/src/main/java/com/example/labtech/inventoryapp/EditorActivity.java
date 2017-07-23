@@ -49,9 +49,9 @@ import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.labtech.inventoryapp.data.BookContract.BookEntry;
@@ -61,6 +61,9 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 /**
@@ -88,6 +91,18 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
      */
     Button mReduceQuantityButton;
     String mCurrentPhotoPath;
+    @BindView(R.id.edit_book_name)
+    TextView mNameEditText;
+    @BindView(R.id.edit_book_quantity)
+    TextView mQuantityEditText;
+    @BindView(R.id.edit_book_price)
+    TextView mPriceEditText;
+    @BindView(R.id.spinner_supplier)
+    Spinner mSupplierSpinner;
+    @BindView(R.id.add_book_image)
+    ImageView mImageBook;
+    @BindView(R.id.button_take_photo)
+    Button mButtonTakePicture;
     /**
      * Content URI for the existing books (null if it's a new book)
      */
@@ -96,32 +111,11 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     private String mCurrentPhoto;
     private Uri mPhotoUri;
     /**
-     * EditText field to enter the book's name
-     */
-    private EditText mNameEditText;
-    /**
-     * EditText field to enter the book's price
-     */
-    private EditText mPriceEditText;
-    /**
-     * EditText field to enter the book's quantity
-     */
-    private EditText mQuantityEditText;
-    /**
-     * EditText field to enter the book's supplier
-     */
-    private Spinner mSupplierSpinner;
-    /**
      * supplier of the book. The possible values are:
      * 0 for eshop , 1 for amazon, 2 for plaisio.
      */
     private int mSupplier = BookEntry.SUPPLIER_ESHOP;
-    /**
-     * image  for books cover
-     */
-    private ImageView mImageBook;
     private Bitmap mBitmap;
-    private Button mButtonTakePicture;
     /**
      * Boolean flag that keeps track of whether the book has been edited (true) or not (false)
      */
@@ -170,12 +164,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
         }
 
-        // Find all relevant views that we will need to read user input from
-        mNameEditText = (EditText) findViewById(R.id.edit_book_name);
-        mQuantityEditText = (EditText) findViewById(R.id.edit_book_quantity);
-        mPriceEditText = (EditText) findViewById(R.id.edit_book_price);
-        mSupplierSpinner = (Spinner) findViewById(R.id.spinner_supplier);
-        mImageBook = (ImageView) findViewById(R.id.add_book_image);
+        ButterKnife.bind(this);
 
         ViewTreeObserver viewTreeObserver = mImageBook.getViewTreeObserver();
         viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -186,7 +175,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             }
         });
 
-        mButtonTakePicture = (Button) findViewById(R.id.button_take_photo);
         mButtonTakePicture.setEnabled(false);
 
         updateBookPhoto();
@@ -197,7 +185,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         mQuantityEditText.setOnTouchListener(mTouchListener);
         mPriceEditText.setOnTouchListener(mTouchListener);
         mSupplierSpinner.setOnTouchListener(mTouchListener);
-
 
         setupSpinner();
     }

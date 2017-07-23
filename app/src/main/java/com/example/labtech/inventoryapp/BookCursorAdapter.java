@@ -20,6 +20,9 @@ import android.widget.Toast;
 
 import com.example.labtech.inventoryapp.data.BookContract.BookEntry;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 /**
  * {@link BookCursorAdapter} is an adapter for a list or grid view
@@ -49,12 +52,15 @@ public class BookCursorAdapter extends CursorAdapter {
      */
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+        ViewHolder viewHolder = new ViewHolder(view);
+        view.setTag(viewHolder);
         // return the list item view (instead of null)
-        return LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+        return view;
     }
 
     /**
-     * This method binds the pet data (in the current row pointed to by cursor) to the given
+     * This method binds the book data (in the current row pointed to by cursor) to the given
      * list item layout. For example, the name for the current pet can be set on the name TextView
      * in the list item layout.
      *
@@ -66,11 +72,7 @@ public class BookCursorAdapter extends CursorAdapter {
     @Override
     public void bindView(View view, final Context context, Cursor cursor) {
 
-        // Find fields to populate in inflated template
-        TextView nameTextView = (TextView) view.findViewById(R.id.name);
-        TextView quantityTextView = (TextView) view.findViewById(R.id.quantity_text_view);
-        TextView priceTextView = (TextView) view.findViewById(R.id.price_text_view);
-        Button sellButton = (Button) view.findViewById(R.id.sell_book_button);
+        ViewHolder viewHolder = (ViewHolder) view.getTag();
 
         // Find the columns of book attributes that we're interested in
         int idColumnIndex = cursor.getInt(cursor.getColumnIndex(BookEntry._ID));
@@ -85,9 +87,9 @@ public class BookCursorAdapter extends CursorAdapter {
         String bookPrice = cursor.getString(priceColumnIndex);
 
         // Update the TextViews with the attributes for the current book
-        nameTextView.setText(bookName);
-        quantityTextView.setText(bookQuantity);
-        priceTextView.setText(bookPrice);
+        viewHolder.nameTextView.setText(bookName);
+        viewHolder.quantityTextView.setText(bookQuantity);
+        viewHolder.priceTextView.setText(bookPrice);
 
         //get currentBookUri
         final Uri currentBookUri = ContentUris.withAppendedId(BookEntry.CONTENT_URI, idColumnIndex);
@@ -95,7 +97,7 @@ public class BookCursorAdapter extends CursorAdapter {
         final int currentBookquantity = cursor.getInt(quantityColumnIndex);
 
         //set listener for each button in the list view
-        sellButton.setOnClickListener(new View.OnClickListener() {
+        viewHolder.sellButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 ContentResolver resolver = v.getContext().getContentResolver();
                 // Create a new map of values, where column names are the keys
@@ -121,4 +123,25 @@ public class BookCursorAdapter extends CursorAdapter {
         });
 
     }
+
+    /**
+     * ViewHolder
+     * binds views and fields to a variable
+     * no need to use findViewById anymore
+     */
+    static class ViewHolder {
+        @BindView(R.id.name)
+        TextView nameTextView;
+        @BindView(R.id.quantity_text_view)
+        TextView quantityTextView;
+        @BindView(R.id.price_text_view)
+        TextView priceTextView;
+        @BindView(R.id.sell_book_button)
+        Button sellButton;
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
+    }
+
 }
