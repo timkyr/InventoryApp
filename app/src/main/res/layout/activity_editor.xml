@@ -45,12 +45,14 @@
             <Button
                 android:id="@+id/button_add_quantity"
                 style="@style/EditorFieldStyle"
-                android:hint="@string/add_book_quantiy" />
+                android:hint="@string/add_book_quantiy"
+                android:onClick="addQuantity" />
 
             <Button
                 android:id="@+id/button_reduce_quantity"
                 style="@style/EditorFieldStyle"
-                android:hint="@string/reduce_book_quantiy" />
+                android:hint="@string/reduce_book_quantiy"
+                android:onClick="reduceQuantity" />
 
         </LinearLayout>
 

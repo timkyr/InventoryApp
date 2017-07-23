@@ -38,8 +38,7 @@ public class BookDbHelper extends SQLiteOpenHelper {
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         int curVer = oldVersion;
-        while (curVer < newVersion) {
-            curVer++;
+        if (curVer < newVersion) {
             switch (curVer) {
                 case 2: {
                     // Upgrade from V1 to V2

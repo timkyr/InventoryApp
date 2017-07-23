@@ -64,13 +64,6 @@ public class BookContract {
         public final static String TABLE_NAME = "books";
 
         /**
-         * Unique ID number for the book (only for use in the database table).
-         * <p>
-         * Type: INTEGER
-         */
-        public final static String _ID = BaseColumns._ID;
-
-        /**
          * Name of the book.
          * <p>
          * Type: TEXT
